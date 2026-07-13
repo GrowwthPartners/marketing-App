@@ -1,11 +1,11 @@
 import { useEffect, useId, useState } from 'react'
 import type { ChangeEvent, FormEvent } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   ArrowRight,
   Building,
   CalendarCheck,
   ChevronDown,
-  CheckCircle2,
   Clock3,
   Mail,
   Phone,
@@ -110,9 +110,10 @@ export default function ConsultationFormModal({
   onClose,
 }: ConsultationFormModalProps) {
   const titleId = useId()
+  const navigate = useNavigate()
   const [formData, setFormData] = useState<ContactFormData>(initialFormData)
   const [errors, setErrors] = useState<Record<string, string>>({})
-  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [status, setStatus] = useState<'idle' | 'error'>('idle')
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
@@ -180,9 +181,10 @@ export default function ConsultationFormModal({
       })
 
       await sendToContactApi(payload)
-      setStatus('success')
       setErrors({})
       setFormData(initialFormData)
+      onClose()
+      navigate('/thank-you/consultation')
     } catch (error) {
       console.error('Error submitting consultation form:', error)
       setStatus('error')
@@ -268,28 +270,7 @@ export default function ConsultationFormModal({
         </aside>
 
         <div className="max-h-[94vh] overflow-y-auto px-5 py-6 sm:px-7 lg:px-8 lg:py-8">
-          {status === 'success' ? (
-            <div className="flex min-h-[26rem] flex-col justify-center rounded-[2rem] border border-[#c9f0d6] bg-[linear-gradient(180deg,#f0fff5_0%,#ffffff_100%)] p-6 text-[#14532d] shadow-[0_20px_60px_rgba(20,83,45,0.08)]">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#dcfce7] text-[#16a34a]">
-                <CheckCircle2 className="h-8 w-8" aria-hidden="true" />
-              </div>
-              <h3 className="mt-5 text-3xl font-black text-[#14532d]">
-                Request received.
-              </h3>
-              <p className="mt-3 max-w-md text-sm leading-7 text-[#24613a]">
-                Thank you. We have received your details and will follow up shortly
-                with the right next step.
-              </p>
-              <button
-                type="button"
-                onClick={onClose}
-                className="mt-7 inline-flex w-fit rounded-full bg-[#17120d] px-6 py-3 text-sm font-black text-white transition hover:bg-[#27214f] cursor-pointer"
-              >
-                Close
-              </button>
-            </div>
-          ) : (
-            <>
+          <>
               <div className="mb-6 pr-12">
                 <p className="text-sm font-black uppercase tracking-[0.18em] text-[#843CDA]">
                   Free 30-Min Consultation
@@ -459,7 +440,6 @@ export default function ConsultationFormModal({
                 </div>
               </form>
             </>
-          )}
         </div>
       </section>
     </div>
