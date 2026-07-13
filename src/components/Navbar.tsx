@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import { ArrowRight, Menu } from 'lucide-react'
-import companyLogo from '../assets/company-logo.png'
+import companyLogo from '/logo/company-logo.png'
 import ConsultationFormModal from './ConsultationFormModal'
 
 const navItems = [

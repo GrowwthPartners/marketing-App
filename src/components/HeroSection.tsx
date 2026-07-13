@@ -54,18 +54,13 @@ export default function HeroSection() {
 
         <div className="relative mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 md:py-16 lg:px-8 xl:max-w-[90rem]">
           <div className="mx-auto max-w-4xl text-center">
-            {/* <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#e8e4f7] bg-white/85 px-4 py-2 text-sm font-bold text-[#5155E1] shadow-[0_14px_40px_rgba(28,24,90,0.08)] backdrop-blur">
-              <CalendarCheck className="h-4 w-4" aria-hidden="true" />
-              Fractional CFO Services in Singapore
-            </div> */}
-
             <h1 className="text-4xl font-black leading-[1.02] tracking-[-0.04em] text-[#17120d] sm:text-5xl lg:text-6xl xl:text-7xl">
               Fractional CFO Services for Singapore Businesses
             </h1>
 
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#554b61] sm:text-xl">
               Virtual and fractional CFO services for Singapore businesses. Personally
-              guided by Jatin Daswani, one of Asia's Top CFOs. Get senior finance
+              guided by Jatin Detwani, one of Asia's Top CFOs. Get senior finance
               leadership that your business deserves not just an agency handoff.
             </p>
           </div>
