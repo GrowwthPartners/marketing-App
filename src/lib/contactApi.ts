@@ -7,21 +7,26 @@ export interface ContactFormData {
   service: string
 }
 
-export interface ContactApiPayload extends ContactFormData {
-  fullPhone: string
-  source: string
-  submittedAt: string
+export interface ContactApiPayload {
+  name: string
+  companyName: string
+  email: string
+  phoneNumber: string
+  serviceLookingFor: string
+  message: string
 }
-const API_BASE = import.meta.env.VITE_CONTACTAPI_DEVURL || import.meta.env.VITE_CONTACTAPI_PRODURL
 
-const CONTACT_API_URL = `${API_BASE}/api/contact-growwth`;
+const API_BASE = import.meta.env.VITE_CONTACTAPI_DEVURL || import.meta.env.VITE_CONTACTAPI_PRODURL
+const CONTACT_API_URL = `${API_BASE}/api/contact-growwth`
 
 export function mapGeneralContactPayload(formData: ContactFormData): ContactApiPayload {
   return {
-    ...formData,
-    fullPhone: `${formData.countryCode} ${formData.phone}`.trim(),
-    source: 'fractional-cfo-hero',
-    submittedAt: new Date().toISOString(),
+    name: formData.name,
+    companyName: formData.company,
+    email: formData.email,
+    phoneNumber: `${formData.countryCode} ${formData.phone}`.trim(),
+    serviceLookingFor: formData.service,
+    message: '',
   }
 }
 
@@ -31,7 +36,7 @@ export async function sendToContactApi(payload: ContactApiPayload) {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(payload),
+    body: JSON.stringify({ data: payload }),
   })
 
   if (!response.ok) {
