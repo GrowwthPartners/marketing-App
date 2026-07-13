@@ -16,8 +16,7 @@ export interface ContactApiPayload {
   message: string
 }
 
-// const API_BASE = import.meta.env.VITE_CONTACTAPI_DEVURL || import.meta.env.VITE_CONTACTAPI_PRODURL
-const API_BASE = 'http://localhost:8081'
+const API_BASE = import.meta.env.VITE_CONTACTAPI_DEVURL || import.meta.env.VITE_CONTACTAPI_PRODURL
 const CONTACT_API_URL = `${API_BASE}/api/contact-growwth`
 
 export function mapGeneralContactPayload(formData: ContactFormData): ContactApiPayload {
