@@ -21,7 +21,7 @@ export default function HomePage() {
         <title>Fractional CFO Services for Singapore Businesses</title>
         <meta
           name="description"
-          content="Virtual and fractional CFO services for Singapore businesses, personally guided by Jatin Daswani."
+          content="Virtual and fractional CFO services for Singapore businesses, personally guided by Jatin Detwani."
         />
       </Head>
       <div className="flex min-h-screen flex-col bg-[#ffffff] text-[#17120d]">
