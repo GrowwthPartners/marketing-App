@@ -41,7 +41,7 @@ export default function WhyUsSection() {
             use a senior partner's name as the marketing badge. We work differently.
             Growwth Partners is intentionally tight-knit. We take on only a selected
             number of businesses each year so every engagement is led by senior CFOs
-            with 10+ years of experience, personally guided by Jatin Daswani.
+            with 10+ years of experience, personally guided by Jatin Detwani.
           </p>
         </div>
 

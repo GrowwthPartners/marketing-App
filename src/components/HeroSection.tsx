@@ -73,7 +73,7 @@ export default function HeroSection() {
             <div className="relative overflow-hidden rounded-[1.75rem] border border-white bg-white shadow-[0_28px_90px_rgba(28,24,90,0.16)] md:rounded-[2.5rem]">
               <img
                 src={jatinBanner}
-                alt="Jatin Daswani, award-winning CFO"
+                alt="Jatin Detwani, award-winning CFO"
                 className="aspect-[16/9] w-full object-cover object-center"
                 fetchPriority="high"
               />
