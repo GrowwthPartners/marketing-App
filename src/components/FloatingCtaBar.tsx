@@ -1,7 +1,7 @@
 import { ArrowRight, CalendarDays, WalletCards } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
-const CALENDLY_URL = 'https://calendly.com/jd-growwthpartners/15min?month=2025-11'
+const CALENDLY_URL = 'https://calendly.com/jd-growwthpartners/demo'
 
 export default function FloatingCtaBar() {
   const [isVisible, setIsVisible] = useState(false)

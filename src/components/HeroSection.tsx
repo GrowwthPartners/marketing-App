@@ -127,7 +127,7 @@ export default function HeroSection() {
 
                 <button
                   type="button"
-                  onClick={() => window.open('https://calendly.com/jd-growwthpartners/15min?month=2025-11', '_blank')}
+                  onClick={() => window.open('https://calendly.com/jd-growwthpartners/demo', '_blank')}
                   className="group rounded-2xl border border-[#ece8e3] bg-white px-5 py-3 cursor-pointer text-left text-sm font-bold text-[#27214f] shadow-sm transition hover:border-[#843CDA]/40 hover:bg-[#f7f5ff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#5155E1]"
                 >
                   <span className="block text-[#17120d]">

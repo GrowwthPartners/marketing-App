@@ -83,7 +83,7 @@ export default function ThankYouPage() {
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </a>
                   <a
-                    href="https://calendly.com/jd-growwthpartners/15min?month=2025-11"
+                    href="https://calendly.com/jd-growwthpartners/demo"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center justify-center gap-2 rounded-full border border-[#e3dcf2] bg-white px-6 py-3.5 text-sm font-black text-[#5155E1] shadow-[0_12px_34px_rgba(28,24,90,0.08)] transition hover:bg-[#f7f5ff]"
