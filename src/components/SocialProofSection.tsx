@@ -16,7 +16,7 @@ import geleijnVerheijke from '../assets/hero/geleijn-verheijke.webp'
 import kiyanForoughi from '../assets/hero/kiyan-foroughi.webp'
 import maneeshMishra from '../assets/hero/maneesh-mishra.webp'
 import rajithVolopay from '../assets/hero/rajith-volopay.webp'
-import socialProofBanner from '../assets/hero/social-proof-banner.jpeg'
+import socialProofBanner from '../assets/hero/social-proof-banner.webp'
 import suMaeChia from '../assets/hero/su-mae-chia.webp'
 import TrustedLogosSection from './TrustedLogosSection'
 
