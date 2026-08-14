@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import cmoAsia from '../assets/hero/cmo-asia.jpg'
-import goldenGlobeTiger from '../assets/hero/golden-globe-tiger.png'
+import goldenGlobeTiger from '../assets/hero/golden-globe-tiger.webp'
 import innovationAward from '../assets/hero/innovation-excellence-award.png'
 import passionVista from '../assets/hero/passion-vista.jpg'
 import xero from '../assets/hero/xero.png'
