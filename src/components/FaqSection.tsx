@@ -39,10 +39,7 @@ export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState(0)
 
   return (
-    <section
-      id="faq"
-      className="relative overflow-hidden bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-24"
-    >
+    <section className="relative overflow-hidden bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div
         aria-hidden="true"
         className="absolute right-0 top-16 h-80 w-80 rounded-full bg-[#EE8CB6]/10 blur-3xl"
