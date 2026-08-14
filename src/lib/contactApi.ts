@@ -18,7 +18,6 @@ export interface ContactApiPayload {
 
 const API_BASE = import.meta.env.VITE_CONTACTAPI_DEVURL || import.meta.env.VITE_CONTACTAPI_PRODURL
 const CONTACT_API_URL = `${API_BASE}/api/contact-growwth`
-  console.log({API_BASE});
   
 export function mapGeneralContactPayload(formData: ContactFormData): ContactApiPayload {
   return {

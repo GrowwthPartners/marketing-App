@@ -19,10 +19,7 @@ export default function PricingSection() {
 
   return (
     <>
-      <section
-        id="pricing"
-        className="relative overflow-hidden bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-24"
-      >
+      <section className="relative overflow-hidden bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
         <div
           aria-hidden="true"
           className="absolute left-0 top-20 h-72 w-72 rounded-full bg-[#3970E2]/10 blur-3xl"
