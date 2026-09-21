@@ -1,11 +1,12 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
-import { ArrowRight, Award, BadgeCheck, } from 'lucide-react'
+import { ArrowRight, Award, BadgeCheck, Users, } from 'lucide-react'
 import jatinBanner from '../assets/hero/jatin-banner.webp'
 import ConsultationFormModal from './ConsultationFormModal'
 
 const DesktopAwardShowcase = lazy(() => import('./DesktopAwardShowcase'))
 
 const trustItems = [
+  { icon: Users, label: '200+ Singapore businesses served' },
   { icon: Award, label: "Asia's Greatest CFO Award" },
   { icon: BadgeCheck, label: 'Xero Silver Partner' },
 ]
@@ -116,7 +117,7 @@ export default function HeroSection() {
                   onClick={openConsultationModal}
                   className="group inline-flex items-center justify-center gap-2 rounded-full cursor-pointer bg-[linear-gradient(100deg,#3970E2_0%,#5155E1_35%,#843CDA_70%,#EE8CB6_100%)] px-7 py-4 text-base font-black text-white shadow-[0_18px_44px_rgba(81,85,225,0.28)] transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#5155E1]"
                 >
-                  Book a Free 30-Min Consultation
+                  Leave us your query
                   <ArrowRight
                     className="h-5 w-5 transition group-hover:translate-x-0.5"
                     aria-hidden="true"
@@ -126,13 +127,10 @@ export default function HeroSection() {
                 <button
                   type="button"
                   onClick={() => window.open('https://calendly.com/jd-growwthpartners/demo', '_blank')}
-                  className="group rounded-2xl border border-[#ece8e3] bg-white px-5 py-5 cursor-pointer text-left text-sm font-bold text-[#27214f] shadow-sm transition hover:border-[#843CDA]/40 hover:bg-[#f7f5ff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#5155E1]"
+                  className="group inline-flex items-center justify-center gap-2 border border-[#ece8e3] bg-white rounded-full px-5 py-5 cursor-pointer text-left text-sm font-bold text-[#27214f] shadow-sm transition hover:border-[#843CDA]/40 hover:bg-[#f7f5ff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#5155E1]"
                 >
-                 
-                  <span className="inline-flex items-center gap-1 text-[#5155E1]">
-                    Check for yourself, pick a time directly on Jatin's calendar
+                    Book a call with Jatin
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-                  </span>
                 </button>
               </div>
             </div>
