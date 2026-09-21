@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
-import { ArrowRight, Award, BadgeCheck, Star, Users } from 'lucide-react'
+import { ArrowRight, Award, BadgeCheck, } from 'lucide-react'
 import jatinBanner from '../assets/hero/jatin-banner.webp'
 import ConsultationFormModal from './ConsultationFormModal'
 
