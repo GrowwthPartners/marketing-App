@@ -6,8 +6,6 @@ import ConsultationFormModal from './ConsultationFormModal'
 const DesktopAwardShowcase = lazy(() => import('./DesktopAwardShowcase'))
 
 const trustItems = [
-  { icon: Star, label: '5.0 rated' },
-  { icon: Users, label: '200+ Singapore businesses' },
   { icon: Award, label: "Asia's Greatest CFO Award" },
   { icon: BadgeCheck, label: 'Xero Silver Partner' },
 ]
@@ -61,7 +59,7 @@ export default function HeroSection() {
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#554b61] sm:text-xl">
               Virtual and fractional CFO services for Singapore businesses. Personally
               guided by Jatin Detwani, one of Asia's Top CFOs. Get senior finance
-              leadership that your business deserves not just an agency handoff.
+              leadership that your business deserves, not just an agency handoff.
             </p>
           </div>
 
@@ -128,11 +126,9 @@ export default function HeroSection() {
                 <button
                   type="button"
                   onClick={() => window.open('https://calendly.com/jd-growwthpartners/demo', '_blank')}
-                  className="group rounded-2xl border border-[#ece8e3] bg-white px-5 py-3 cursor-pointer text-left text-sm font-bold text-[#27214f] shadow-sm transition hover:border-[#843CDA]/40 hover:bg-[#f7f5ff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#5155E1]"
+                  className="group rounded-2xl border border-[#ece8e3] bg-white px-5 py-5 cursor-pointer text-left text-sm font-bold text-[#27214f] shadow-sm transition hover:border-[#843CDA]/40 hover:bg-[#f7f5ff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#5155E1]"
                 >
-                  <span className="block text-[#17120d]">
-                    Sounds too good to be true?
-                  </span>
+                 
                   <span className="inline-flex items-center gap-1 text-[#5155E1]">
                     Check for yourself, pick a time directly on Jatin's calendar
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />

@@ -76,7 +76,7 @@ export default function HomePage() {
   return (
     <>
       <Head>
-        <title>Fractional CFO Services for Singapore Businesses</title>
+        <title>Fractional CFO Services for Singapore Businesses | Growwth Partners</title>
         <meta
           name="description"
           content="Virtual and fractional CFO services for Singapore businesses, personally guided by Jatin Detwani."
