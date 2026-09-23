@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { useState } from 'react'
 
-const faqs = [
+export const faqs = [
   {
     question: "What's the difference between a Virtual CFO and a Fractional CFO?",
     answer:

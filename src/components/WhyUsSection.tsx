@@ -9,7 +9,7 @@ const differentiators = [
   {
     icon: UsersRound,
     title: 'Selective by Design',
-    body: "We accept only a small number of new businesses each year. This isn't scarcity marketing. It's how we stay senior, responsive, and personally invested in every client's success. You're never one of hundreds in a pipeline.",
+    body: "We have served 200+ businesses since 2011, but we take on a limited number of new engagements each year. This is how we stay senior, responsive, and personally invested in every client's success. You're never one of hundreds in a pipeline.",
   },
   {
     icon: MessageCircle,
@@ -39,9 +39,10 @@ export default function WhyUsSection() {
           <p className="mt-6 text-lg leading-8 text-[#554b61]">
             Most CFO firms in Singapore put a junior consultant on your account and
             use a senior partner's name as the marketing badge. We work differently.
-            Growwth Partners is intentionally tight-knit. We take on only a selected
-            number of businesses each year so every engagement is led by senior CFOs
-            with 10+ years of experience, personally guided by Jatin Detwani.
+            Growwth Partners is intentionally tight-knit. We have served 200+
+            businesses since 2011, while taking on a limited number of new
+            engagements each year so every engagement is led by senior CFOs with
+            10+ years of experience, personally guided by Jatin Detwani.
           </p>
         </div>
 

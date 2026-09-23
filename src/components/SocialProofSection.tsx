@@ -1,4 +1,4 @@
-import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import {
   ArrowLeft,
   ArrowRight,
@@ -18,8 +18,7 @@ import maneeshMishra from '../assets/hero/maneesh-mishra.webp'
 import rajithVolopay from '../assets/hero/rajith-volopay.webp'
 import socialProofBanner from '../assets/hero/social-proof-banner.webp'
 import suMaeChia from '../assets/hero/su-mae-chia.webp'
-
-const TrustedLogosSection = lazy(() => import('./TrustedLogosSection'))
+import TrustedLogosSection from './TrustedLogosSection'
 
 const stats = [
   { icon: Users, value: '25+', label: 'Clients Worldwide' },
@@ -454,16 +453,7 @@ export default function SocialProofSection() {
           </div>
         </div>
 
-        <Suspense
-          fallback={
-            <div
-              aria-hidden="true"
-              className="relative left-1/2 mt-12 min-h-64 w-screen -translate-x-1/2"
-            />
-          }
-        >
-          <TrustedLogosSection />
-        </Suspense>
+        <TrustedLogosSection />
       </div>
     </section>
   )

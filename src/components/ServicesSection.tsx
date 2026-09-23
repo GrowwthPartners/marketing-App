@@ -10,7 +10,7 @@ import {
 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
-const services = [
+export const services = [
   {
     icon: BarChart3,
     title: 'Strategic Financial Planning',
