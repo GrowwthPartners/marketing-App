@@ -6,7 +6,7 @@ import ConsultationFormModal from './ConsultationFormModal'
 const DesktopAwardShowcase = lazy(() => import('./DesktopAwardShowcase'))
 
 const trustItems = [
-  { icon: Users, label: '200+ Singapore businesses served' },
+  { icon: Users, label: '200+ businesses served since 2011' },
   { icon: Award, label: "Asia's Greatest CFO Award" },
   { icon: BadgeCheck, label: 'Xero Silver Partner' },
 ]

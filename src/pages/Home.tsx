@@ -1,86 +1,116 @@
-import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from 'react'
 import { Head } from 'vite-react-ssg'
+import CustomisationSection from '../components/CustomisationSection'
+import FaqSection, { faqs } from '../components/FaqSection'
 import Footer from '../components/Footer'
 import FloatingCtaBar from '../components/FloatingCtaBar'
 import HeroSection from '../components/HeroSection'
+import IndustriesSection from '../components/IndustriesSection'
+import MeetJatinSection from '../components/MeetJatinSection'
 import Navbar from '../components/Navbar'
+import PricingSection from '../components/PricingSection'
 import ProblemSection from '../components/ProblemSection'
+import ProcessSection from '../components/ProcessSection'
+import ServicesSection, { services } from '../components/ServicesSection'
+import SocialProofSection from '../components/SocialProofSection'
 import WhyUsSection from '../components/WhyUsSection'
 
-const SocialProofSection = lazy(() => import('../components/SocialProofSection'))
-const MeetJatinSection = lazy(() => import('../components/MeetJatinSection'))
-const ServicesSection = lazy(() => import('../components/ServicesSection'))
-const CustomisationSection = lazy(() => import('../components/CustomisationSection'))
-const PricingSection = lazy(() => import('../components/PricingSection'))
-const ProcessSection = lazy(() => import('../components/ProcessSection'))
-const IndustriesSection = lazy(() => import('../components/IndustriesSection'))
-const FaqSection = lazy(() => import('../components/FaqSection'))
-
-type DeferredSectionProps = {
-  anchorId?: string
-  children: ReactNode
-  minHeightClassName: string
-}
-
-function SectionFallback({ minHeightClassName }: Pick<DeferredSectionProps, 'minHeightClassName'>) {
-  return (
-    <div
-      aria-hidden="true"
-      className={`${minHeightClassName} bg-[linear-gradient(180deg,#ffffff_0%,#fbfaff_100%)]`}
-    />
-  )
-}
-
-function DeferredSection({ anchorId, children, minHeightClassName }: DeferredSectionProps) {
-  const ref = useRef<HTMLDivElement | null>(null)
-  const [shouldRender, setShouldRender] = useState(false)
-
-  useEffect(() => {
-    if (shouldRender) return
-
-    const element = ref.current
-    if (!element || !('IntersectionObserver' in window)) {
-      setShouldRender(true)
-      return
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry?.isIntersecting) return
-
-        setShouldRender(true)
-        observer.disconnect()
+const pageTitle = 'Fractional CFO Services for Singapore Businesses | Growwth Partners'
+const pageDescription =
+  'Virtual and fractional CFO services for Singapore businesses, personally guided by Jatin Detwani.'
+const pageUrl = 'https://cfo.growwthpartners.com/'
+const socialImage = 'https://cfo.growwthpartners.com/social/cfo-og-card.png'
+const socialImageAlt =
+  'Jatin Detwani beside the headline Fractional CFO Services for Singapore Businesses.'
+const organizationId = `${pageUrl}#organization`
+const serviceId = `${pageUrl}#fractional-cfo-service`
+const faqId = `${pageUrl}#faq`
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': organizationId,
+      name: 'Growwth Partners',
+      url: pageUrl,
+      logo: 'https://cfo.growwthpartners.com/logo/company-logo.png',
+    },
+    {
+      '@type': 'Service',
+      '@id': serviceId,
+      name: 'Fractional CFO Services for Singapore Businesses',
+      serviceType: 'Fractional CFO Services',
+      description: pageDescription,
+      url: pageUrl,
+      provider: {
+        '@id': organizationId,
       },
-      { rootMargin: '900px 0px' },
-    )
-
-    observer.observe(element)
-
-    return () => observer.disconnect()
-  }, [shouldRender])
-
-  return (
-    <div id={anchorId} ref={ref}>
-      {shouldRender ? (
-        <Suspense fallback={<SectionFallback minHeightClassName={minHeightClassName} />}>
-          {children}
-        </Suspense>
-      ) : (
-        <SectionFallback minHeightClassName={minHeightClassName} />
-      )}
-    </div>
-  )
+      areaServed: [
+        {
+          '@type': 'Country',
+          name: 'Singapore',
+        },
+        {
+          '@type': 'Place',
+          name: 'International markets',
+        },
+      ],
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Fractional CFO service capabilities',
+        itemListElement: services.map((service, index) => ({
+          '@type': 'Offer',
+          position: index + 1,
+          itemOffered: {
+            '@type': 'Service',
+            name: service.title,
+            description: service.body,
+          },
+        })),
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': faqId,
+      url: `${pageUrl}#faq`,
+      mainEntity: faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    },
+  ],
 }
 
 export default function HomePage() {
   return (
     <>
       <Head>
-        <title>Fractional CFO Services for Singapore Businesses | Growwth Partners</title>
-        <meta
-          name="description"
-          content="Virtual and fractional CFO services for Singapore businesses, personally guided by Jatin Detwani."
-        />
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <link rel="canonical" href={pageUrl} />
+
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:site_name" content="Growwth Partners" />
+        <meta property="og:image" content={socialImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:alt" content={socialImageAlt} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@growwthpartners" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={socialImage} />
+        <meta name="twitter:image:alt" content={socialImageAlt} />
+
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Head>
       <div className="flex min-h-screen flex-col bg-[#ffffff] text-[#17120d]">
         <Navbar />
@@ -89,39 +119,22 @@ export default function HomePage() {
           <HeroSection />
           <ProblemSection />
           <WhyUsSection />
-          <DeferredSection
-            anchorId="stories"
-            minHeightClassName="min-h-[58rem] md:min-h-[72rem]"
-          >
+          <div id="stories">
             <SocialProofSection />
-          </DeferredSection>
-          <DeferredSection minHeightClassName="min-h-[42rem] md:min-h-[36rem]">
-            <MeetJatinSection />
-          </DeferredSection>
-          <DeferredSection
-            anchorId="services"
-            minHeightClassName="min-h-[60rem] md:min-h-[42rem]"
-          >
+          </div>
+          <MeetJatinSection />
+          <div id="services">
             <ServicesSection />
-          </DeferredSection>
-          <DeferredSection minHeightClassName="min-h-[40rem]">
-            <CustomisationSection />
-          </DeferredSection>
-          <DeferredSection
-            anchorId="pricing"
-            minHeightClassName="min-h-[48rem] md:min-h-[36rem]"
-          >
+          </div>
+          <CustomisationSection />
+          <div id="pricing">
             <PricingSection />
-          </DeferredSection>
-          <DeferredSection minHeightClassName="min-h-[54rem] md:min-h-[40rem]">
-            <ProcessSection />
-          </DeferredSection>
-          <DeferredSection minHeightClassName="min-h-[70rem] md:min-h-[52rem]">
-            <IndustriesSection />
-          </DeferredSection>
-          <DeferredSection anchorId="faq" minHeightClassName="min-h-[42rem]">
+          </div>
+          <ProcessSection />
+          <IndustriesSection />
+          <div id="faq">
             <FaqSection />
-          </DeferredSection>
+          </div>
         </main>
         <Footer />
       </div>

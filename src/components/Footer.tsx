@@ -30,9 +30,9 @@ export default function Footer() {
               Growwth Partners
             </h2>
             <p className="mt-3 max-w-3xl text-base font-semibold leading-8 text-[#5b5369] sm:text-lg">
-              Singapore-headquartered. Serving 200+ businesses across SG, UAE, AU,
-              and US with senior finance leadership built for founders, operators,
-              and growth-stage teams.
+              Singapore-headquartered. 200+ businesses served since 2011 across
+              Singapore and international markets, with senior finance leadership
+              built for founders, operators, and growth-stage teams.
             </p>
           </div>
 
