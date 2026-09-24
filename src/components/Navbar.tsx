@@ -14,9 +14,17 @@ const navItems = [
 
 export default function Navbar() {
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const openConsultationModal = () => setIsConsultationModalOpen(true)
   const closeConsultationModal = () => setIsConsultationModalOpen(false)
+  const closeMobileMenu = () => setIsMobileMenuOpen(false)
+
+  const openMobileConsultationModal = () => {
+    closeMobileMenu()
+    openConsultationModal()
+  }
+
   return (
     <header className="sticky top-0 z-50 border-b border-white/20 bg-[linear-gradient(100deg,#3970E2_0%,#5155E1_34%,#843CDA_68%,#EE8CB6_100%)] shadow-[0_18px_50px_rgba(57,112,226,0.22)]">
       <nav
@@ -60,33 +68,45 @@ export default function Navbar() {
           </button>
         </div>
 
-        <details className="group relative lg:hidden">
-          <summary className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-white/35 bg-white/15 text-white shadow-sm backdrop-blur transition hover:bg-white/25 [&::-webkit-details-marker]:hidden">
-            <span className="sr-only">Open navigation menu</span>
+        <div className="relative lg:hidden">
+          <button
+            type="button"
+            aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation-menu"
+            onClick={() => setIsMobileMenuOpen((isOpen) => !isOpen)}
+            className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/35 bg-white/15 text-white shadow-sm backdrop-blur transition hover:bg-white/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+          >
             <Menu className="h-5 w-5" aria-hidden="true" />
-          </summary>
-          <div className="absolute right-0 mt-3 w-[min(88vw,22rem)] overflow-hidden rounded-[1.5rem] border border-white/20 bg-white p-3 shadow-[0_24px_70px_rgba(28,24,90,0.22)]">
-            <div className="grid gap-1">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="rounded-2xl border border-transparent px-4 py-3 text-base font-semibold text-[#27214f] transition hover:border-[#ece6fb] hover:bg-[#f4f1ff] hover:text-[#5155E1]"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
-            <button
-              type="button"
-              onClick={openConsultationModal}
-              className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[linear-gradient(100deg,#3970E2_0%,#5155E1_34%,#843CDA_68%,#EE8CB6_100%)] px-5 py-3 text-sm font-bold text-white shadow-[0_14px_34px_rgba(81,85,225,0.24)]"
+          </button>
+          {isMobileMenuOpen && (
+            <div
+              id="mobile-navigation-menu"
+              className="absolute right-0 mt-3 w-[min(88vw,22rem)] overflow-hidden rounded-[1.5rem] border border-white/20 bg-white p-3 shadow-[0_24px_70px_rgba(28,24,90,0.22)]"
             >
-              Book a Call
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </button>
-          </div>
-        </details>
+              <div className="grid gap-1">
+                {navItems.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    onClick={closeMobileMenu}
+                    className="rounded-2xl border border-transparent px-4 py-3 text-base font-semibold text-[#27214f] transition hover:border-[#ece6fb] hover:bg-[#f4f1ff] hover:text-[#5155E1]"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+              <button
+                type="button"
+                onClick={openMobileConsultationModal}
+                className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[linear-gradient(100deg,#3970E2_0%,#5155E1_34%,#843CDA_68%,#EE8CB6_100%)] px-5 py-3 text-sm font-bold text-white shadow-[0_14px_34px_rgba(81,85,225,0.24)]"
+              >
+                Book a Call
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </button>
+            </div>
+          )}
+        </div>
       </nav>
       <ConsultationFormModal
         isOpen={isConsultationModalOpen}
