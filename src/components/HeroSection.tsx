@@ -60,7 +60,7 @@ export default function HeroSection() {
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[#554b61] sm:text-xl">
               Virtual and fractional CFO services for Singapore businesses. Personally
               guided by Jatin Detwani, one of Asia's Top CFOs. Get senior finance
-              leadership that your business deserves, not just an agency handoff.
+              leadership your business deserves, not just an agency handoff.
             </p>
           </div>
 
